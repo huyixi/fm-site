@@ -4,7 +4,11 @@
 <head>
   <meta charset="UTF-8" />
   <title>{{ config.title }}</title>
-  <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+  <link rel="stylesheet" href="{{ get_url(path="reset.css") }}">
+  <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
+  {% block rss %}
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false)}}">
+  {% endblock %}
 </head>
 
 <body>
