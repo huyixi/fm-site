@@ -1,0 +1,55 @@
+/* Basic styling for the header */
+.header {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px 0;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav a.listen-now {
+    color: #fff;
+    background-color: #3eb489;
+    padding: 6px 12px;
+    border-radius: 4px;
+}
+
+.nav a.listen-now:hover {
+    background-color: #2da67a;
+}
+
+footer {
+    margin: 0 auto;
+    padding: 10px 0;
+    max-width: 980px;
+    color: #999;
+}
+
+main {
+    max-width: 980px;
+    margin: 0 auto;
+}

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>{{ config.title }}</title>
+  <link rel="stylesheet" href="{{ get_url(path="style.css") }}">
+</head>
+
+<body>
+  {% include "header.html" %}
+  <main>{% block content %} {{ section.content | safe }} {% endblock content %}</main>
+  {% include "footer.html" %}
+</body>
+
+</html>
