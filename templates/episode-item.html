@@ -1,0 +1,28 @@
+<li class="episode-item">
+  <div class="episode-artwork">
+    <img src="/images/logo.webp" alt="{{ episode.title }}">
+  </div>
+  <div class="episode-details">
+    <div class="episode-heading">
+      <time class="episode-time">{{ episode.date | date(format="%Y-%m-%d") }}</time>
+      <h3 class="episode-title">
+      <a href="{{ episode.permalink }}">{{ episode.title }}</a>
+    </h3>
+    {% if episode.description %}
+      <p class="episode-description">{{ episode.description }}</p>
+    {% endif %}
+    </div>
+    <div class="episode-actions">
+      <div class="episode-duration">
+        <time class="episode-time">
+          {% if episode.extra.duration %}
+            {{ episode.extra.duration }} min
+          {% endif %}
+        </time>
+    </div>
+    <div class="episode-share">
+      <a href="{{ episode.permalink }}" class="btn-share">分享</a>
+    </div>
+    </div>
+  </div>
+</li>

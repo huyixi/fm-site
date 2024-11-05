@@ -11,6 +11,7 @@ feed_filenames = ["rss.xml"]
 highlight_code = false
 
 [extra]
+episodes_section = "episodes"
 rss = "https://fm.huyixi.com/rss.xml"
 slogan = "散步才是正经事儿"
 spotify = "https://open.spotify.com/show/your-podcast-id"

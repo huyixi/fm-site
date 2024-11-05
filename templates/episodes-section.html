@@ -1,5 +1,9 @@
-<ul>
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
+{% set episodes = get_section(path="episodes/_index.md") %}
+<div class="episodes-section">
+  <h2 class="episodes-title">最新剧集</h2>
+  <ol class="episode-list">
+    {% for episode in episodes.pages %}
+      {% include "episode-item.html" %}
+    {% endfor %}
+  </ol>
+</div>
