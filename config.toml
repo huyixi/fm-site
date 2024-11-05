@@ -12,7 +12,7 @@ highlight_code = false
 
 [extra]
 rss = "https://fm.huyixi.com/rss.xml"
-slogan = "随意走，随心想，散步才是正经事儿"
+slogan = "散步才是正经事儿"
 spotify = "https://open.spotify.com/show/your-podcast-id"
 google_podcasts = "https://podcasts.google.com/feed/your-podcast-id"
 xiaoyuzhou = "https://www.xiaoyuzhoufm.com/podcast/your-podcast-id"
