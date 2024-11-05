@@ -2,16 +2,17 @@
 base_url = "https://fm.huyixi.com"
 title = "散步随想"
 author = "huyixi"
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
-
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
+generate_feeds = true
 
 [markdown]
-# Whether to do syntax highlighting
-# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
 highlight_code = false
 
 [extra]
-# Put all your custom variables here
+rss = "https://fm.huyixi.com/rss.xml"
+slogan = "随意走，随心想，散步才是正经事儿"
+spotify = "https://open.spotify.com/show/your-podcast-id"
+google_podcasts = "https://podcasts.google.com/feed/your-podcast-id"
+xiaoyuzhou = "https://www.xiaoyuzhoufm.com/podcast/your-podcast-id"
+share_link = "https://fm.huyixi.com"

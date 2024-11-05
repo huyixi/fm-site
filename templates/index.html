@@ -1,6 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-<h2>Welcome to {{ config.title }}</h2>
+
+<div class="channel-header">
+  <div class="channel-logo">
+    <img src="/images/logo.webp" alt="Channel Logo" />
+  </div>
+  <div class="channel-meta">
+    <h2 class="channel-title">{{ config.title }}</h2>
+    <p class="channel-slogan">{{ config.extra.slogan }}</p>
+    <p class="channel-author">
+      <a href="https://huyixi.com" target="_blank" rel="noopener">@{{ config.author }}</a>
+    </p>
+    <p class="channel-listen-now">立即收听：</p>
+    <div class="podcast-platforms">
+      {% if config.extra.apple_podcasts %}
+        <a href="{{ config.extra.apple_podcasts }}" target="_blank" rel="noopener">
+          <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
+        </a>
+      {% else %}
+        <div class="platform-coming-soon" title="即将上线">
+          <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
+          <span class="badge">即将上线</span>
+        </div>
+      {% endif %}
+      <a href="{{ config.extra.spotify }}" target="_blank" rel="noopener">
+        <img src="/images/spotify-icon.svg" alt="Spotify" />
+      </a>
+      <a href="{{ config.extra.google_podcasts }}" target="_blank" rel="noopener">
+        <img src="/images/google-podcasts-icon.svg" alt="Google Podcasts" />
+      </a>
+      <a href="{{ config.extra.xiaoyuzhou }}" target="_blank" rel="noopener">
+        <img src="/images/xiaoyuzhou-icon.svg" alt="小宇宙" />
+      </a>
+    </div>
+  </div>
+</div>
 <ul>
   {% for page in section.pages %}
   <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
