@@ -125,7 +125,7 @@ $artwork-size: 94px;
             "artwork description description"
             "artwork primary-actions secondary-actions";
         background-color: #fff;
-        padding: 20px 0;
+        padding: 40px 0;
 
         .artwork {
             grid-area: artwork;
@@ -156,17 +156,17 @@ $artwork-size: 94px;
             margin: 10px 0;
         }
 
-        .author {
-            font-size: 18px;
-            color: $primary-color;
-            margin: 5px 0;
-        }
     }
 
     .description {
         grid-area: description;
-        a {
-            color: $primary-color;
+        .author {
+            a {
+                color: $primary-color;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
         }
     }
 
@@ -256,7 +256,7 @@ $artwork-size: 94px;
 
     .episodes-title {
         @include container;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         font-weight: bold
     }
 }
@@ -343,9 +343,10 @@ $border-radius: 8px;
     }
 
     &-actions {
-        display: flex;
-        justify-content: space-around;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
         align-items: center;
+        justify-items: end;
         font-size: 1rem;
         color: $text-dark;
         line-height: 1.5;
@@ -360,6 +361,7 @@ $border-radius: 8px;
     &-share {
         font-size: 0.9rem;
         color: $text-gray;
+        padding-right: 16px;
     }
 
     &-description {
