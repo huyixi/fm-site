@@ -247,7 +247,7 @@ $border-radius: 8px;
 
     &::after {
         content: '';
-        width: 92%;
+        width: $max-width;
         position: absolute;
         bottom: 0;
         left: 50%;
