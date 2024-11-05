@@ -49,6 +49,9 @@ $artwork-size: 94px;
                 font-size: 16px;
 
                 &.listen-now {
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0px;
                     color: #fff;
                     background-color: #3eb489;
                     padding: 6px 12px;
@@ -66,6 +69,18 @@ $artwork-size: 94px;
             font-weight: normal;
             margin: 0;
         }
+
+        .play-icon {
+            width: 16px;
+            height: 10px;
+            fill: currentColor;
+        }
+    }
+
+    .play-icon {
+        width: 16px;
+        height: 10px;
+        fill: white;
     }
 
     // Action buttons
@@ -437,4 +452,8 @@ footer {
     @include container;
     padding: 10px 0;
     color: $text-light;
+
+    .copyright {
+        font-size: 12px;
+    }
 }
