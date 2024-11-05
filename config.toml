@@ -10,6 +10,16 @@ feed_filenames = ["rss.xml"]
 [markdown]
 highlight_code = false
 
+[languages]
+[languages.en]
+language_code = "en"
+title = "My Site"
+# 其它设置...
+
+[languages.zh]
+language_code = "zh"
+title = "我的网站"
+
 [extra]
 episodes_section = "episodes"
 description = "散步才是正经事儿"

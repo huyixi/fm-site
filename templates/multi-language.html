@@ -1,0 +1,7 @@
+<ul class="language-switcher">
+  {% for lang in site.languages -%}
+  <li class="{% if lang == lang %}active{% endif %}">
+    <a href="{{ lang | rel_url }}">{{ lang.language_code == "en" ? "English" : "中文" }}</a>
+  </li>
+  {% endfor %}
+</ul>
