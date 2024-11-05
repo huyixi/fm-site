@@ -1,0 +1,43 @@
+<div class="podcast-header">
+  <div class="artwork">
+    <img src="/images/logo.webp" alt="Channel Logo" />
+  </div>
+  <div class="headings">
+    <h2 class="title">{{ config.title }}</h2>
+    <p class="slogan">{{ config.extra.slogan }}</p>
+  </div>
+  <div class="description">
+    <p class="author"></p>
+      <a href="https://huyixi.com" target="_blank" rel="noopener">@{{ config.author }}</a>
+    </p>
+  </div>
+  <div class="listen">
+    <p class="listen-text">立即收听：</p>
+    <div class="platforms">
+      {% if config.extra.apple_podcasts %}
+        <a href="{{ config.extra.apple_podcasts }}" target="_blank" rel="noopener">
+          <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
+        </a>
+      {% else %}
+        <div class="platform-disabled" title="即将上线">
+          <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
+          <span class="badge">即将上线</span>
+        </div>
+      {% endif %}
+      <a href="{{ config.extra.spotify }}" target="_blank" rel="noopener">
+        <img src="/images/spotify-icon.svg" alt="Spotify" />
+      </a>
+      <a href="{{ config.extra.google_podcasts }}" target="_blank" rel="noopener">
+        <img src="/images/google-podcasts-icon.svg" alt="Google Podcasts" />
+      </a>
+      <a href="{{ config.extra.xiaoyuzhou }}" target="_blank" rel="noopener">
+        <img src="/images/xiaoyuzhou-icon.svg" alt="小宇宙" />
+      </a>
+    </div>
+  </div>
+  <div class="secondary-actions">
+    <a href="/rss.xml" class="btn-follow" target="_blank" rel="noopener">
+      <span>+</span> Subscribe
+    </a>
+  </div>
+</div>
