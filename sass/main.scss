@@ -36,67 +36,31 @@ $border-radius: 8px;
     padding: 10px 0;
     background-color: #fff;
 
+    &__container {
+        @include container;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
     &__title {
         font-size: 18px;
         font-weight: normal;
         margin: 0;
     }
 
-    &__container {
-        @include container;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        // Navigation
-        .nav {
-            display: flex;
-            gap: 20px;
-
-            a {
-                color: $text-dark;
-                font-size: 16px;
-
-                &.listen-now {
-                    display: inline-flex;
-                    align-items: center;
-                    gap: 4px;
-                    color: #fff;
-                    background-color: #3eb489;
-                    padding: 6px 12px;
-                    border-radius: 4px;
-
-                    &:hover {
-                        background-color: #2da67a;
-                    }
-                }
-            }
-        }
-    }
-
-    // Action buttons
-    &__follow-button {
-        @include button;
+    &__listen-btn {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        background-color: #f1f1f1;
-        color: #7a57d1;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: bold;
-        font-size: 16px;
-        text-decoration: none;
-        transition: background-color 0.3s, color 0.3s;
-    }
+        color: #fff;
+        background-color: $primary-color;
+        padding: 6px 12px;
+        border-radius: 4px;
 
-    .follow-button:hover {
-        background-color: #e1e1e1;
-        color: #5a3eb8;
-    }
-
-    .follow-button span {
-        font-size: 20px;
+        &:hover {
+            background-color: $primary-hover;
+        }
     }
 }
 
