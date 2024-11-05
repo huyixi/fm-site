@@ -125,6 +125,7 @@ $artwork-size: 94px;
             "artwork description description"
             "artwork primary-actions secondary-actions";
         background-color: #fff;
+        padding: 20px 0;
 
         .artwork {
             grid-area: artwork;
@@ -256,6 +257,7 @@ $artwork-size: 94px;
     .episodes-title {
         @include container;
         margin-bottom: 20px;
+        font-weight: bold
     }
 }
 
@@ -283,6 +285,10 @@ $border-radius: 8px;
         padding: 16px 0;
         width: 100%;
         cursor: pointer;
+
+        &:hover {
+            border-bottom-color: transparent;
+        }
 
         &:hover::before {
             content: '';
@@ -324,7 +330,6 @@ $border-radius: 8px;
 
     &-title {
         font-size: 1.2rem;
-        font-weight: bold;
         margin: $spacing-base * 0.5 0;
 
         a {
@@ -332,7 +337,7 @@ $border-radius: 8px;
             text-decoration: none;
 
             &:hover {
-                color: $primary-color;
+                text-decoration: underline;
             }
         }
     }
