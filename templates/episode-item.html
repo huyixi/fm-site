@@ -1,26 +1,26 @@
-<li class="episode-item">
-  <div class="episode-artwork">
+<li class="episode">
+  <div class="episode__artwork">
     <img src="/images/logo.webp" alt="{{ episode.title }}">
   </div>
-  <div class="episode-details">
-    <div class="episode-heading">
-      <time class="episode-time">{{ episode.date | date(format="%Y-%m-%d") }}</time>
-      <h3 class="episode-title">
+  <div class="episode__details">
+    <div class="episode__heading">
+      <time class="episode__time">{{ episode.date | date(format="%Y年%m月%d日") }}</time>
+      <h3 class="episode__title">
       <a href="{{ episode.permalink }}">{{ episode.title }}</a>
     </h3>
     {% if episode.description %}
-      <p class="episode-description">{{ episode.description }}</p>
+      <p class="episode__description">{{ episode.description }}</p>
     {% endif %}
     </div>
-    <div class="episode-actions">
-      <div class="episode-duration">
-        <time class="episode-time">
+    <div class="episode__actions">
+      <div class="episode__duration">
+        <time class="episode__time">
           {% if episode.extra.duration %}
             {{ episode.extra.duration }} min
           {% endif %}
         </time>
     </div>
-    <div class="episode-share">
+    <div class="episode__share">
       <a href="{{ episode.permalink }}" class="btn-share">分享</a>
     </div>
     </div>

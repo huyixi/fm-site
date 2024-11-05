@@ -1,9 +1,9 @@
 {% set episodes = get_section(path="episodes/_index.md") %}
-<div class="episodes-section">
-  <h2 class="episodes-title">最新单集</h2>
-  <ol class="episode-list">
+<section class="episodes">
+  <h2 class="episodes__title">最新单集</h2>
+  <ol class="episodes__list">
     {% for episode in episodes.pages %}
       {% include "episode-item.html" %}
     {% endfor %}
   </ol>
-</div>
+</section>
