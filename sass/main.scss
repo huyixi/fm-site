@@ -376,12 +376,12 @@ $border-radius: 8px;
     }
 }
 
-footer {
+.site-footer {
     @include container;
     padding: 10px 0;
     color: $text-light;
 
-    .copyright {
+    &__copyright {
         font-size: 12px;
     }
 }
