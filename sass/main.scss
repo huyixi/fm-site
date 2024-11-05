@@ -173,7 +173,7 @@ $badge-text: #666;
 }
 
 // Main content
-main {
+.main {
     @include container;
 
     .podcast-header {
@@ -181,28 +181,28 @@ main {
         grid-template-columns: auto 1fr auto;
         grid-template-rows: 1fr auto auto;
         grid-template-areas:
-        "artwork headings headings"
-        "artwork description description"
-        "artwork primary-actions secondary-actions";
-    padding: 20px;
-    background-color: #fff;
+            "artwork headings headings"
+            "artwork description description"
+            "artwork primary-actions secondary-actions";
+        padding: 20px;
+        background-color: #fff;
 
-    .artwork {
+        .artwork {
         grid-area: artwork;
         margin-inline-end: 36px;
 
         img {
             width: 270px;
             height: 270px;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+                border-radius: 10px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            }
         }
-    }
 
-    .headings {
-        grid-area: headings;
-        align-items: flex-start;
-        align-self: end;
+        .headings {
+            grid-area: headings;
+            align-items: flex-start;
+            align-self: end;
 
         .title {
             font-size: 24px;
