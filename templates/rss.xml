@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ config.title | default(value="") | escape }}</title>
+    <link>{{ config.base_url | default(value="") }}</link>
+    <description>{{ config.description | default(value="") | escape }}</description>
+    <language>{{ lang | default(value="zh") }}</language>
+    {% if last_updated %}
+    <lastBuildDate>{{ last_updated | date(format="r") }}</lastBuildDate>
+    {% endif %}
+    <atom:link href="{{ config.base_url }}/rss.xml" rel="self" type="application/rss+xml"/>
+
+    {% for page in pages %}
+      <item>
+        <title>{{ page.title | default(value="") | escape }}</title>
+        <link>{{ page.permalink | default(value="") }}</link>
+        <guid isPermaLink="true">{{ page.permalink | default(value="") }}</guid>
+        {% if page.date %}
+        <pubDate>{{ page.date | date(format="r") }}</pubDate>
+        {% endif %}
+        {% if page.summary %}
+        <description>{{ page.summary | default(value="") | safe }}</description>
+        {% endif %}
+        {% if page.author %}
+        <author>{{ page.author }}</author>
+        {% endif %}
+      </item>
+    {% endfor %}
+  </channel>
+</rss>
