@@ -1,11 +1,11 @@
 {% extends "base.html" %}
+
 {% block content %}
+  <section class="section-podcast">
+    {% include "podcast-header.html" %}
+  </section>
 
-{% include "podcast-header.html" %}
-
-<ul>
-  {% for page in section.pages %}
-  <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-  {% endfor %}
-</ul>
+  <section class="section-episodes">
+    {% include "episodes-section.html" %}
+  </section>
 {% endblock %}

@@ -172,11 +172,15 @@ $badge-text: #666;
     }
 }
 
-.podcast-header {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 1fr auto auto;
-    grid-template-areas:
+// Main content
+main {
+    @include container;
+
+    .podcast-header {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: 1fr auto auto;
+        grid-template-areas:
         "artwork headings headings"
         "artwork description description"
         "artwork primary-actions secondary-actions";
@@ -306,10 +310,6 @@ $badge-text: #666;
         }
     }
 }
-
-// Main content
-main {
-    @include container;
 }
 
 // Footer
