@@ -1,29 +1,35 @@
-<section class="info-section">
-  <h2 class="info-title">信息</h2>
-  <div class="info-grid">
-    <div class="info-item">
-      <p class="label">创作者</p>
-      <p class="value">
-        <a href="{{ config.extra.creator_link }}">{{ config.author }}</a>
+<section class="podcast-info">
+  <h2 class="podcast-info__title">信息</h2>
+  <div class="podcast-info__grid">
+    <div class="podcast-info__item">
+      <p class="podcast-info__label">创作者</p>
+      <p class="podcast-info__value">
+        <a class="podcast-info__link" href="{{ config.extra.creator_link }}">{{ config.author }}</a>
       </p>
     </div>
-    <div class="info-item">
-      <p class="label">单集</p>
-      <p class="value">{{ get_section(path="episodes/_index.md") | get(key="pages") | length }}</p>
-    </div>
-    <div class="info-item">
-      <p class="label">节目网站</p>
-      <p class="value">
-        <a href="{{ config.extra.share_link }}">{{ config.title }}</a>
+
+    <div class="podcast-info__item">
+      <p class="podcast-info__label">单集</p>
+      <p class="podcast-info__value">
+        {{ get_section(path="episodes/_index.md") | get(key="pages") | length }}
       </p>
     </div>
-    <div class="info-item">
-      <p class="label">活跃年份</p>
-      <p class="value">2024-{{ now() | date(format="%Y") }}年</p>
+
+    <div class="podcast-info__item">
+      <p class="podcast-info__label">节目网站</p>
+      <p class="podcast-info__value">
+        <a class="podcast-info__link" href="{{ config.extra.share_link }}">{{ config.title }}</a>
+      </p>
     </div>
-    <div class="info-item">
-      <p class="label">版权</p>
-      <p class="value">© {{ config.author }}</p>
+
+    <div class="podcast-info__item">
+      <p class="podcast-info__label">活跃年份</p>
+      <p class="podcast-info__value">2024-{{ now() | date(format="%Y") }}年</p>
+    </div>
+
+    <div class="podcast-info__item">
+      <p class="podcast-info__label">版权</p>
+      <p class="podcast-info__value">© {{ config.author }}</p>
     </div>
   </div>
 </section>

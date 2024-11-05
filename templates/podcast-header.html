@@ -1,25 +1,25 @@
-<div class="podcast-header">
-  <div class="artwork">
+<div class="podcast-hero">
+  <div class="podcast-hero__artwork">
     <img src="/images/logo.webp" alt="Channel Logo" />
   </div>
-  <div class="headings">
-    <h2 class="title">{{ config.title }}</h2>
-    <p class="slogan">{{ config.extra.slogan }}</p>
+  <div class="podcast-hero__headings">
+    <h2 class="podcast-hero__headings__title">{{ config.title }}</h2>
+    <p class="podcast-hero__headings__slogan">{{ config.extra.slogan }}</p>
   </div>
-  <div class="description">
-    <p class="author">
+  <div class="podcast-hero__description">
+    <p class="podcast-hero__description__author">
       <a href="https://huyixi.com" target="_blank" rel="noopener">{{ config.author }}</a>
     </p>
   </div>
-  <div class="listen">
-    <p class="listen-text">立即收听：</p>
-    <div class="platforms">
+  <div class="podcast-hero__primary-actions">
+    <p class="podcast-hero__primary-actions__listen-text">立即收听：</p>
+    <div class="podcast-hero__primary-actions__platforms">
       {% if config.extra.apple_podcasts %}
         <a href="{{ config.extra.apple_podcasts }}" target="_blank" rel="noopener">
           <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
         </a>
       {% else %}
-        <div class="platform-disabled" title="即将上线">
+        <div class="podcast-hero__primary-actions__platforms__platform-disabled" title="即将上线">
           <img src="/images/apple-podcasts-icon.svg" alt="Apple Podcasts" />
           <span class="badge">即将上线</span>
         </div>
@@ -35,8 +35,8 @@
       </a>
     </div>
   </div>
-  <div class="secondary-actions">
-    <a href="/rss.xml" class="btn-follow" target="_blank" rel="noopener">
+  <div class="podcast-hero__secondary-actions">
+    <a href="/rss.xml" class="podcast-hero__secondary-actions__btn-follow" target="_blank" rel="noopener">
       <span>+</span> 订阅
     </a>
   </div>
