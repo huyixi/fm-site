@@ -12,6 +12,7 @@ highlight_code = false
 
 [extra]
 episodes_section = "episodes"
+description = "散步才是正经事儿"
 rss = "https://fm.huyixi.com/rss.xml"
 slogan = "散步才是正经事儿"
 spotify = "https://open.spotify.com/show/your-podcast-id"

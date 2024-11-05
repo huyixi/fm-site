@@ -144,111 +144,114 @@ $artwork-size: 94px;
             align-items: flex-start;
             align-self: end;
 
-        .title {
-            font-size: 26px;
-            font-weight: bold;
-            margin: 0;
-        }
-
-        .slogan {
-            font-size: 20px;
-            color: $text-gray;
-            margin: 10px 0;
-        }
-
-    }
-
-    .description {
-        grid-area: description;
-        .author {
-            a {
-                color: $primary-color;
+            .title {
+                font-size: 28px;
+                font-weight: bold;
+                margin: 0;
             }
-            a:hover{
-                text-decoration: underline;
+
+            .slogan {
+                font-size: 20px;
+                color: $text-gray;
+                margin: 10px 0;
             }
-        }
-    }
 
-    .listen {
-        grid-area: primary-actions;
-
-        &-listen-now {
-            font-size: 16px;
-            color: $text-gray;
-            margin-bottom: 10px;
         }
 
-        .platforms {
-            display: flex;
-            gap: 10px;
+        .description {
+            grid-area: description;
 
-            img {
-                width: $platform-icon-size;
-                height: $platform-icon-size;
-                transition: transform 0.2s;
+            .author {
+                a {
+                    color: $primary-color;
+                }
 
-                &:hover {
-                    transform: scale(1.1);
+                a:hover {
+                    text-decoration: underline;
                 }
             }
+        }
 
-            .platform-disabled {
-                position: relative;
-                cursor: pointer;
+        .listen {
+            grid-area: primary-actions;
+
+            &-listen-now {
+                font-size: 16px;
+                color: $text-gray;
+                margin-bottom: 10px;
+            }
+
+            .platforms {
+                display: flex;
+                gap: 10px;
 
                 img {
-                    opacity: 0.5;
+                    width: $platform-icon-size;
+                    height: $platform-icon-size;
+                    transition: transform 0.2s;
 
                     &:hover {
-                        transform: none;
+                        transform: scale(1.1);
                     }
                 }
 
-                .badge {
-                    position: absolute;
-                    bottom: -20px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    background: $badge-bg;
-                    color: $badge-text;
-                    padding: 2px 8px;
-                    border-radius: 12px;
-                    font-size: 12px;
-                    white-space: nowrap;
-                    border: 1px solid $badge-border;
-                    opacity: 0;
-                    transition: opacity 0.2s;
-                }
+                .platform-disabled {
+                    position: relative;
+                    cursor: pointer;
 
-                &:hover {
                     img {
-                        opacity: 0.6;
+                        opacity: 0.5;
+
+                        &:hover {
+                            transform: none;
+                        }
                     }
 
                     .badge {
-                        opacity: 1;
+                        position: absolute;
+                        bottom: -20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: $badge-bg;
+                        color: $badge-text;
+                        padding: 2px 8px;
+                        border-radius: 12px;
+                        font-size: 12px;
+                        white-space: nowrap;
+                        border: 1px solid $badge-border;
+                        opacity: 0;
+                        transition: opacity 0.2s;
+                    }
+
+                    &:hover {
+                        img {
+                            opacity: 0.6;
+                        }
+
+                        .badge {
+                            opacity: 1;
+                        }
                     }
                 }
             }
         }
-    }
 
-    .secondary-actions {
-        grid-area: secondary-actions;
-        display: inline-flex;
-        align-items: center;
-        align-self: end;
-        background-color: #f1f1f1;
-        height: 16px;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: bold;
+        .secondary-actions {
+            grid-area: secondary-actions;
+            display: inline-flex;
+            align-items: center;
+            align-self: end;
+            background-color: #f1f1f1;
+            height: 16px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: bold;
 
-        &:hover {
-            background-color: #e1e1e1;
+            &:hover {
+                background-color: #e1e1e1;
+            }
         }
-        }
+
         .btn-follow {
             color: $primary-color
         }
@@ -257,7 +260,22 @@ $artwork-size: 94px;
     .episodes-title {
         @include container;
         margin-bottom: 10px;
-        font-weight: bold
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    .about {
+        @include container;
+        margin: 40px auto;
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        p {
+            color: rgba(0, 0, 0, 0.88);
+        }
     }
 }
 
@@ -367,6 +385,51 @@ $border-radius: 8px;
     &-description {
         margin: 0;
         padding: 0;
+    }
+}
+
+.info-section {
+    @include container;
+    padding: 1rem;
+    color: #333;
+
+    .info-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // 三列布局
+        gap: 1rem; // 项目之间的间距
+
+        .info-item {
+            display: flex;
+            flex-direction: column;
+
+            .label {
+                font-size: 0.9rem;
+                color: rgba(0, 0, 0, 0.56);
+                margin-bottom: 0.3rem;
+            }
+
+            .value {
+                font-size: 1rem;
+                color: rgba(0, 0, 0, 0.88);
+                margin: 0;
+                padding: 0;
+
+                a {
+                    color: $primary-color;
+                    text-decoration: none;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
     }
 }
 
