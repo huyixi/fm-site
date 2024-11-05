@@ -51,11 +51,11 @@ $artwork-size: 94px;
                 &.listen-now {
                     display: inline-flex;
                     align-items: center;
-                    gap: 0px;
+                    gap: 4px;
                     color: #fff;
                     background-color: #3eb489;
                     padding: 6px 12px;
-                    border-radius: 6px;
+                    border-radius: 4px;
 
                     &:hover {
                         background-color: #2da67a;
@@ -69,22 +69,11 @@ $artwork-size: 94px;
             font-weight: normal;
             margin: 0;
         }
-
-        .play-icon {
-            width: 16px;
-            height: 10px;
-            fill: currentColor;
-        }
-    }
-
-    .play-icon {
-        width: 16px;
-        height: 10px;
-        fill: white;
     }
 
     // Action buttons
     .follow-button {
+        @include button;
         display: inline-flex;
         align-items: center;
         gap: 4px;
@@ -114,16 +103,6 @@ $artwork-size: 94px;
 
         &:hover {
             background-color: $primary-hover;
-        }
-    }
-
-    .follow-button {
-        @include button;
-        background-color: #f1f1f1;
-        color: $text-dark;
-
-        &:hover {
-            background-color: #e1e1e1;
         }
     }
 }
@@ -296,8 +275,6 @@ $artwork-size: 94px;
 
 // Variables
 $border-color: #ddd;
-$text-gray: #777;
-$text-dark: #555;
 $spacing-base: 1rem;
 $image-size: 80px;
 $border-radius: 8px;
@@ -416,8 +393,8 @@ $border-radius: 8px;
 
     .info-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); // 三列布局
-        gap: 1rem; // 项目之间的间距
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
 
         .info-item {
             display: flex;
