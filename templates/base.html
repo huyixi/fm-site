@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>{{ config.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ get_url(path="reset.css") }}">
   <link rel="stylesheet" href="{{ get_url(path="main.css") }}">
   {% block rss %}
@@ -12,9 +13,9 @@
 </head>
 
 <body>
-  {% include "header.html" %}
+  {% include "site-header.html" %}
   <main class="main">{% block content %} {{ section.content | safe }} {% endblock content %}</main>
-  {% include "footer.html" %}
+  {% include "site-footer.html" %}
 </body>
 
 </html>

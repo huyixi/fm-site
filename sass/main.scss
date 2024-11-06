@@ -16,12 +16,31 @@ $spacing-base: 1rem;
 $image-size: 80px;
 $border-radius: 8px;
 
-// Mixins
-@mixin button {
-    padding: 8px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: bold;
+$breakpoints: (
+    'phone': 480px,
+    'tablet': 768px,
+    'desktop': 1024px
+);
+
+@mixin breakpoint($point) {
+    @if $point == 'phone' {
+        @media screen and (max-width: map-get($breakpoints, 'phone')) {
+            @content;
+        }
+    }
+    @else if $point == 'tablet' {
+        @media screen and (min-width: map-get($breakpoints, 'tablet')) and (max-width: map-get($breakpoints, 'desktop')) {
+            @content;
+        }
+    }
+    @else if $point == 'desktop' {
+        @media screen and (min-width: map-get($breakpoints, 'desktop')) {
+            @content;
+        }
+    }
+    @else {
+        @warn 'Invalid breakpoint: #{$point}. Please use phone, tablet, or desktop.';
+    }
 }
 
 // Layout
@@ -36,17 +55,17 @@ $border-radius: 8px;
     padding: 10px 0;
     background-color: #fff;
 
+    &__title a{
+        font-size: 20px;
+        font-weight: normal;
+        margin: 0;
+    }
+
     &__container {
         @include container;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
-
-    &__title {
-        font-size: 18px;
-        font-weight: normal;
-        margin: 0;
     }
 
     &__listen-btn {
@@ -64,7 +83,7 @@ $border-radius: 8px;
     }
 }
 
-.podcast-hero {
+.site-hero {
     @include container;
     display: grid;
     grid-template-columns: auto 1fr auto;
