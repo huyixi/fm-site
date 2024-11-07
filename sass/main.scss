@@ -17,6 +17,7 @@ $artwork-size: 94px;
 $spacing-base: 1rem;
 $image-size: 80px;
 $border-radius: 8px;
+$section-gutter: 40px;
 
 $gutter: (
     'sm': 12px,
@@ -130,7 +131,7 @@ html {
         "description"
         "primary-actions";
     background-color: #fff;
-    padding: 40px map-get($gutter, 'xl');
+    padding: $section-gutter map-get($gutter, 'xl');
 
     @include breakpoint('phone') {
         grid-template-columns: auto 1fr auto;
@@ -310,7 +311,7 @@ html {
 
 .about {
     @include container;
-    margin: 40px map-get($gutter, 'xl');
+    padding: $section-gutter map-get($gutter, 'xl');
 
     &__title {
         font-size: 20px;
@@ -323,13 +324,17 @@ html {
 }
 
 .episodes {
+    padding: 0 map-get($gutter, 'xl');
+
+    @include breakpoint('phone') {
+        margin: $section-gutter auto;
+    }
 
     &__title {
         @include container;
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
-        margin: 0 map-get($gutter, 'xl') 14px;
     }
 
     &__list {
@@ -436,7 +441,11 @@ html {
 .site-info {
     @include container;
     color: #333;
-    margin: 40px map-get($gutter, 'xl');
+    padding: 0 map-get($gutter, 'xl');
+
+    @include breakpoint('phone') {
+        margin: $section-gutter auto;
+    }
 
     &__title {
         font-size: 1.2rem;
@@ -479,8 +488,12 @@ html {
 
 .site-footer {
     @include container;
-    margin: 40px map-get($gutter, 'xl');
+    padding: 0 map-get($gutter, 'xl');
     color: $text-light;
+
+    @include breakpoint('phone') {
+        margin: $section-gutter auto;
+    }
 
     &__copyright {
         font-size: 12px;
