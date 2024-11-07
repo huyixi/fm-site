@@ -457,7 +457,7 @@ html {
     }
 
     &__label {
-        font-size: 0.9rem;
+        font-size: map-get($font-size, 'sm');
         color: rgba(0, 0, 0, 0.56);
         margin-bottom: 0.3rem;
     }
@@ -471,7 +471,7 @@ html {
     }
 
     &__value {
-        font-size: 1rem;
+        font-size: map-get($font-size, 'sm');
         color: rgba(0, 0, 0, 0.88);
         margin: 0;
         padding: 0;
@@ -484,8 +484,12 @@ html {
 
     &__grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1rem;
+        grid-template-columns: 1fr;
+        gap: 20px;
+
+        @include breakpoint('phone') {
+            grid-template-columns: repeat(3, 1fr);
+        }
     }
 }
 
