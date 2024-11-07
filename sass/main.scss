@@ -488,6 +488,10 @@ html {
         gap: 20px;
 
         @include breakpoint('phone') {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include breakpoint('tablet') {
             grid-template-columns: repeat(3, 1fr);
         }
     }
