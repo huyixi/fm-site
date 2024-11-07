@@ -2,13 +2,12 @@
   <div class="episode__artwork">
     <img src="/images/logo.webp" alt="{{ episode.title }}">
   </div>
-  <div class="episode__content">
-    <div class="episode__info">
-      <h3 class="episode__title">
-      <a href="{{ episode.permalink }}">{{ episode.title }}</a>
+  <div class="episode__details">
+    <time class="episode__time">{{ episode.date | date(format="%Y年%m月%d日") }}</time>
+    <h3 class="episode__title">
+        <a href="{{ episode.permalink }}">{{ episode.title }}</a>
     </h3>
     <p class="episode__description">{{ episode.description }}</p>
-    <time class="episode__time">{{ episode.date | date(format="%Y年%m月%d日") }}</time>
   </div>
   <div class="episode__actions">
     <div class="episode__duration">

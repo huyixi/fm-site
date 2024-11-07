@@ -18,6 +18,7 @@ $spacing-base: 1rem;
 $image-size: 80px;
 $border-radius: 8px;
 $section-gutter: 40px;
+$label-divider: rgba(0, 0, 0, .15);
 
 $gutter: (
     'sm': 12px,
@@ -324,17 +325,18 @@ html {
 }
 
 .episodes {
-    padding: 0 map-get($gutter, 'xl');
-
-    @include breakpoint('phone') {
-        margin: $section-gutter auto;
-    }
+    margin-bottom: $section-gutter;
 
     &__title {
         @include container;
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
+        padding: 0 map-get($gutter, 'xl');
+
+        @include breakpoint('phone') {
+            margin: $section-gutter auto;
+        }
     }
 
     &__list {
@@ -348,28 +350,32 @@ html {
     position: relative;
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
-    margin: 0 auto;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid $label-divider;
     cursor: pointer;
+    overflow: hidden;
 
-    // &::after {
-    //     content: '';
-    //     width: $max-width;
-    //     position: absolute;
-    //     bottom: 0;
-    //     left: 50%;
-    //     transform: translateX(-50%);
-    //     height: 1px;
-    //     background-color: $border-color;
-    // }
+    @include breakpoint('phone') {
+        flex-direction: row;
+    }
+
+    &:hover::after {
+        content: '';
+        width: calc(100% + 50px);
+        height: calc(100% + 2px);
+        position: absolute;
+        top: -1px;
+        background-color: #f2f2f2;
+        border-radius: 6px;
+        transition: opacity 0.1s ease-in;
+        z-index: -1;
+        inset-inline-start: -25px;
+    }
 
     &:hover {
         border-bottom-color: transparent;
         background-color: #f1f1f1;
-    }
-
-    @include breakpoint('phone') {
-        flex-direction: row;
     }
 
     &__artwork img {
@@ -380,8 +386,20 @@ html {
 
     &__details {
         display: flex;
-        width: 100%;
-        gap: $spacing-base;
+        flex-direction: column;
+        max-height: 120px;
+    }
+
+    &__description {
+        margin-block: 0;
+    }
+
+    &__actions {
+        display: none;
+
+        @include breakpoint('phone') {
+            display: flex;
+        }
     }
 
     &__heading {
@@ -410,17 +428,6 @@ html {
         }
     }
 
-    &__actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: center;
-        justify-items: end;
-        font-size: 1rem;
-        color: $text-dark;
-        line-height: 1.5;
-        width: 33%
-    }
-
     &__duration {
         font-size: 0.9rem;
         color: $text-gray;
@@ -431,16 +438,12 @@ html {
         color: $text-gray;
         padding-right: 16px;
     }
-
-    &__description {
-        margin: 0;
-        padding-top: 4px;
-    }
 }
 
 .site-info {
     @include container;
     color: #333;
+    margin-bottom: $section-gutter;
     padding: 0 map-get($gutter, 'xl');
 
     @include breakpoint('phone') {
