@@ -1,4 +1,7 @@
 // Variables
+$font-family: -apple-system, BlinkMacSystemFont,
+                  Apple Color Emoji, SF Pro, SF Pro Icons,
+                  Helvetica Neue, Helvetica, Arial, sans-serif;
 $max-width: 980px;
 $primary-color: #3eb489;
 $primary-hover: #2da67a;
@@ -39,6 +42,10 @@ $breakpoints: (
             @content;
         }
     }
+}
+
+html {
+    font-family: $font-family;
 }
 
 // Layout
@@ -85,7 +92,7 @@ $breakpoints: (
         background-color: transparent;
         color: $primary-color;
         font-size: map-get($font-size, 'sm');
-
+        font-weight: 600;
         .site-header__play-icon {
             display: none;
         }
@@ -114,18 +121,33 @@ $breakpoints: (
 .site-hero {
     @include container;
     display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 1fr auto auto;
+
     grid-template-areas:
-        "artwork headings headings"
-        "artwork description description"
-        "artwork primary-actions secondary-actions";
+        "secondary-actions"
+        "artwork"
+        "headings"
+        "description"
+        "primary-actions";
     background-color: #fff;
     padding: 40px 0;
+    padding-inline: map-get($gutter, 'sm');
+
+    @include breakpoint('phone') {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: 1fr auto auto;
+        grid-template-areas:
+            "artwork headings headings"
+            "artwork description description"
+            "artwork primary-actions secondary-actions";
+    }
 
     &__artwork {
         grid-area: artwork;
-        margin-inline-end: 36px;
+        margin: 16px auto 0;
+
+        @include breakpoint('phone') {
+            margin-inline-end: 36px;
+        }
 
         img {
             width: 270px;
@@ -137,8 +159,16 @@ $breakpoints: (
 
     &__headings {
         grid-area: headings;
-        align-items: flex-start;
-        align-self: end;
+        align-items: center;
+        margin-top: 18px;
+        text-align: center;
+
+        @include breakpoint('phone') {
+            align-items: flex-start;
+            align-self: end;
+            margin-top: 0;
+            text-align: left;
+        }
 
         &__title {
             font-size: 28px;
@@ -156,8 +186,19 @@ $breakpoints: (
 
     &__description {
         grid-area: description;
+        text-align: center;
+
+        @include breakpoint('phone') {
+            text-align: left;
+        }
 
         &__author {
+            margin: 0;
+
+            @include breakpoint('phone') {
+                margin: 1em 0;
+            }
+
             a {
                 color: $primary-color;
             }
@@ -170,6 +211,11 @@ $breakpoints: (
 
     &__primary-actions {
         grid-area: primary-actions;
+        text-align: center;
+
+        @include breakpoint('phone') {
+            text-align: left;
+        }
     }
 
     &__listen-text {
@@ -180,7 +226,12 @@ $breakpoints: (
 
     &__platforms {
         display: flex;
+        justify-content: center;
         gap: 10px;
+
+        @include breakpoint('phone') {
+            justify-content: flex-start;
+        }
 
         img {
             width: $platform-icon-size;
@@ -235,13 +286,9 @@ $breakpoints: (
     &__secondary-actions {
         grid-area: secondary-actions;
         display: inline-flex;
+        justify-self: end;
         align-items: center;
         align-self: end;
-        background-color: #f1f1f1;
-        height: 16px;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-weight: bold;
 
         &:hover {
             background-color: #e1e1e1;
@@ -249,7 +296,15 @@ $breakpoints: (
     }
 
     &__btn-follow {
-        color: $primary-color
+        padding: 6px 12px;
+        background-color: #f1f1f1;
+        color: $primary-color;
+        border-radius: 20px;
+        font-weight: 600;
+
+        @include breakpoint('phone') {
+            margin-bottom: 6px;
+        }
     }
 }
 
