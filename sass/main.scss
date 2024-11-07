@@ -10,11 +10,22 @@ $platform-icon-size: 32px;
 $badge-bg: #f8f9fa;
 $badge-border: #e0e0e0;
 $badge-text: #666;
-$body-gutter: 20px;
 $artwork-size: 94px;
 $spacing-base: 1rem;
 $image-size: 80px;
 $border-radius: 8px;
+
+$gutter: (
+    'sm': 12px,
+    'md': 20px,
+    'lg': 28px
+);
+$font-size: (
+    'sm': 14px,
+    'base': 16px,
+    'lg': 20px,
+    'xl': 24px
+);
 
 $breakpoints: (
     'phone': 480px,
@@ -23,23 +34,10 @@ $breakpoints: (
 );
 
 @mixin breakpoint($point) {
-    @if $point == 'phone' {
-        @media screen and (max-width: map-get($breakpoints, 'phone')) {
+    @if map-has-key($breakpoints, $point) {
+        @media screen and (min-width: map-get($breakpoints, $point)) {
             @content;
         }
-    }
-    @else if $point == 'tablet' {
-        @media screen and (min-width: map-get($breakpoints, 'tablet')) and (max-width: map-get($breakpoints, 'desktop')) {
-            @content;
-        }
-    }
-    @else if $point == 'desktop' {
-        @media screen and (min-width: map-get($breakpoints, 'desktop')) {
-            @content;
-        }
-    }
-    @else {
-        @warn 'Invalid breakpoint: #{$point}. Please use phone, tablet, or desktop.';
     }
 }
 
@@ -52,35 +50,65 @@ $breakpoints: (
 // Site Header
 .site-header {
     border-bottom: 1px solid $border-color;
-    padding: 10px 0;
     background-color: #fff;
-
-    &__title a{
-        font-size: 20px;
-        font-weight: normal;
-        margin: 0;
-    }
 
     &__container {
         @include container;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+        margin-inline: map-get($gutter, 'sm');
+        height: 44px;
 
+        @include breakpoint('phone') {
+            margin-inline: auto;
+            padding-inline: map-get($gutter, 'sm');
+        }
+    }
+    &__title {
+        display: flex;
+        align-items: center;
+    }
+    &__title-link{
+        margin: 0;
+        height: 1rem;
+        line-height: 1rem;
+        font-size: map-get($font-size, 'base');
+        font-weight: normal;
+    }
     &__listen-btn {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        color: #fff;
-        background-color: $primary-color;
-        padding: 6px 12px;
+        padding: 6px 0;
         border-radius: 4px;
+        background-color: transparent;
+        color: $primary-color;
+        font-size: map-get($font-size, 'sm');
 
-        &:hover {
-            background-color: $primary-hover;
+        .site-header__play-icon {
+            display: none;
+        }
+
+        @include breakpoint('phone') {
+            color: #fff;
+            background-color: $primary-color;
+            padding: 6px 12px;
+
+            &:hover {
+                background-color: $primary-hover;
+            }
+
+            .site-header__play-icon {
+                display: block;
+            }
         }
     }
+
+    &__listen-text {
+        line-height: 1rem;
+    }
+
 }
 
 .site-hero {
