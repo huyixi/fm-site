@@ -20,8 +20,9 @@ $border-radius: 8px;
 
 $gutter: (
     'sm': 12px,
-    'md': 20px,
-    'lg': 28px
+    'base': 16px,
+    'lg': 20px,
+    'xl': 24px
 );
 $font-size: (
     'sm': 14px,
@@ -64,12 +65,12 @@ html {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-inline: map-get($gutter, 'sm');
+        margin-inline: map-get($gutter, 'xl');
         height: 44px;
 
         @include breakpoint('phone') {
             margin-inline: auto;
-            padding-inline: map-get($gutter, 'sm');
+            padding-inline: map-get($gutter, 'xl');
         }
     }
     &__title {
@@ -129,12 +130,11 @@ html {
         "description"
         "primary-actions";
     background-color: #fff;
-    padding: 40px 0;
-    padding-inline: map-get($gutter, 'sm');
+    padding: 40px map-get($gutter, 'xl');
 
     @include breakpoint('phone') {
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 1fr auto auto;
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: 1fr auto auto;
         grid-template-areas:
             "artwork headings headings"
             "artwork description description"
@@ -310,57 +310,61 @@ html {
 
 .about {
     @include container;
-    margin: 40px auto;
+    margin: 40px map-get($gutter, 'xl');
 
-    h2 {
+    &__title {
         font-size: 20px;
         font-weight: bold;
     }
 
-    p {
+    &__description {
         color: rgba(0, 0, 0, 0.88);
     }
 }
 
 .episodes {
+
     &__title {
         @include container;
         margin-bottom: 10px;
         font-weight: bold;
         font-size: 20px;
+        margin: 0 map-get($gutter, 'xl') 14px;
     }
 
     &__list {
-        // @include container;
         display: flex;
         flex-direction: column;
+        margin: 0 map-get($gutter, 'xl');
     }
 }
 
 .episode {
     position: relative;
     display: flex;
+    flex-direction: row-reverse;
     align-items: center;
     margin: 0 auto;
-    padding: 16px 48px;
-    width: $max-width;
-    border-radius: 8px;
     cursor: pointer;
 
-    &::after {
-        content: '';
-        width: $max-width;
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        height: 1px;
-        background-color: $border-color;
-    }
+    // &::after {
+    //     content: '';
+    //     width: $max-width;
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     height: 1px;
+    //     background-color: $border-color;
+    // }
 
     &:hover {
         border-bottom-color: transparent;
         background-color: #f1f1f1;
+    }
+
+    @include breakpoint('phone') {
+        flex-direction: row;
     }
 
     &__artwork img {
@@ -429,10 +433,10 @@ html {
     }
 }
 
-.podcast-info {
+.site-info {
     @include container;
-    padding: 1rem;
     color: #333;
+    margin: 40px map-get($gutter, 'xl');
 
     &__title {
         font-size: 1.2rem;
@@ -475,7 +479,7 @@ html {
 
 .site-footer {
     @include container;
-    padding: 10px 0;
+    margin: 40px map-get($gutter, 'xl');
     color: $text-light;
 
     &__copyright {
