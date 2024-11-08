@@ -547,3 +547,15 @@ html {
         font-size: 12px;
     }
 }
+
+.page__title {
+    max-width: $max-width;
+    margin: 16px auto 0;
+    padding: 0 24px;
+}
+
+.page__content{
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 24px;
+}
