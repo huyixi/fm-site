@@ -19,6 +19,8 @@ $image-size: 80px;
 $border-radius: 8px;
 $section-gutter: 40px;
 $label-divider: rgba(0, 0, 0, .15);
+$body-primary: rgba(0, 0, 0, .88);
+$body-secondary: rgba(0, 0, 0, .56);
 
 $gutter: (
     'sm': 12px,
@@ -51,23 +53,17 @@ html {
     font-family: $font-family;
 }
 
-// Layout
-@mixin container {
-    max-width: $max-width;
-    margin: 0 auto;
-}
-
 // Site Header
 .site-header {
     border-bottom: 1px solid $border-color;
     background-color: #fff;
 
     &__container {
-        @include container;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-inline: map-get($gutter, 'xl');
+        margin: 0 map-get($gutter, 'xl');
+        max-width: $max-width;
         height: 44px;
 
         @include breakpoint('phone') {
@@ -75,6 +71,7 @@ html {
             padding-inline: map-get($gutter, 'xl');
         }
     }
+
     &__title {
         display: flex;
         align-items: center;
@@ -122,7 +119,6 @@ html {
 }
 
 .site-hero {
-    @include container;
     display: grid;
 
     grid-template-areas:
@@ -311,7 +307,8 @@ html {
 }
 
 .about {
-    @include container;
+    max-width: $max-width;
+    margin: 0 auto;
     padding: $section-gutter map-get($gutter, 'xl');
 
     &__title {
@@ -328,8 +325,8 @@ html {
     margin-bottom: $section-gutter;
 
     &__title {
-        @include container;
-        margin-bottom: 10px;
+        max-width: $max-width;
+        margin: 0 auto 10px;
         font-weight: bold;
         font-size: 20px;
         padding: 0 map-get($gutter, 'xl');
@@ -351,31 +348,35 @@ html {
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
+    gap: 10px;
     padding: 10px 0;
     border-bottom: 1px solid $label-divider;
     cursor: pointer;
-    overflow: hidden;
 
     @include breakpoint('phone') {
         flex-direction: row;
     }
 
-    &:hover::after {
+    &:after {
         content: '';
         width: calc(100% + 50px);
         height: calc(100% + 2px);
         position: absolute;
         top: -1px;
         background-color: #f2f2f2;
+        opacity: 0;
         border-radius: 6px;
         transition: opacity 0.1s ease-in;
-        z-index: -1;
+        z-index: 1;
         inset-inline-start: -25px;
     }
 
-    &:hover {
-        border-bottom-color: transparent;
-        background-color: #f1f1f1;
+    &:hover::after {
+        opacity: 1;
+    }
+
+    &__artwork {
+        z-index: 2;
     }
 
     &__artwork img {
@@ -384,28 +385,18 @@ html {
         border-radius: 5px;
     }
 
+    &__subx {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        z-index: 2;
+    }
+
     &__details {
         display: flex;
         flex-direction: column;
-        max-height: 120px;
-    }
-
-    &__description {
-        margin-block: 0;
-    }
-
-    &__actions {
-        display: none;
-
-        @include breakpoint('phone') {
-            display: flex;
-        }
-    }
-
-    &__heading {
-        width: 67%;
-        margin-left: $spacing-base;
-        flex: 1;
+        min-height: $artwork-size;
     }
 
     &__time {
@@ -414,9 +405,10 @@ html {
     }
 
     &__title {
-        font-size: 1.2rem;
+        font-size: 16px;
         margin: 0;
         padding: 4px 0;
+        color: $body-primary;
 
         a {
             color: inherit;
@@ -428,20 +420,48 @@ html {
         }
     }
 
+    &__description {
+        margin-block: 0;
+        display: none;
+        color: $body-secondary;
+        font-size: 12px;
+
+        @media (min-width: 360px) {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+    }
+
+    &__actions {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        margin: 6px 0;
+        width: calc(100% + $artwork-size + 10px);
+
+        @include breakpoint('phone') {
+            display: flex;
+        }
+    }
+
     &__duration {
         font-size: 0.9rem;
-        color: $text-gray;
+        color: $body-secondary;
     }
 
     &__share {
-        font-size: 0.9rem;
-        color: $text-gray;
-        padding-right: 16px;
+        width: 16px;
+        height: 16px;
+        justify-self: end;
+        color: $body-secondary;
     }
 }
 
 .site-info {
-    @include container;
+    max-width: $max-width;
+    margin: 0 auto;
     color: #333;
     margin-bottom: $section-gutter;
     padding: 0 map-get($gutter, 'xl');
@@ -458,7 +478,7 @@ html {
 
     &__label {
         font-size: map-get($font-size, 'sm');
-        color: rgba(0, 0, 0, 0.56);
+        color: $body-secondary;
         margin-bottom: 0.3rem;
     }
 
@@ -472,7 +492,7 @@ html {
 
     &__value {
         font-size: map-get($font-size, 'sm');
-        color: rgba(0, 0, 0, 0.88);
+        color: $body-primary;
         margin: 0;
         padding: 0;
     }
@@ -498,7 +518,8 @@ html {
 }
 
 .site-footer {
-    @include container;
+    max-width: $max-width;
+    margin: 0 auto;
     padding: 0 map-get($gutter, 'xl');
     color: $text-light;
 
