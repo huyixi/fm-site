@@ -349,7 +349,7 @@ html {
     flex-direction: row-reverse;
     justify-content: space-between;
     gap: 10px;
-    padding: 10px 0;
+    padding-top: 10px;
     border-bottom: 1px solid $label-divider;
     cursor: pointer;
 
@@ -428,7 +428,7 @@ html {
 
         @media (min-width: 360px) {
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -438,7 +438,7 @@ html {
     &__actions {
         display: grid;
         grid-template-columns: auto 1fr;
-        margin: 6px 0;
+        margin: 8px 0;
         width: calc(100% + $artwork-size + 10px);
 
         @include breakpoint('phone') {
@@ -485,9 +485,17 @@ html {
     &__link {
         color: $primary-color;
         text-decoration: none;
+        margin-inline-end: 8px;
         &:hover {
             text-decoration: underline;
         }
+    }
+
+    &__external-link {
+        display: inline-flex;
+        align-items: center;
+        color: $primary-color;
+        vertical-align: middle;
     }
 
     &__value {
