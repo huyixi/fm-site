@@ -120,7 +120,6 @@ html {
 
 .site-hero {
     display: grid;
-
     grid-template-areas:
         "secondary-actions"
         "artwork"
@@ -137,6 +136,8 @@ html {
             "artwork headings headings"
             "artwork description description"
             "artwork primary-actions secondary-actions";
+        max-width: 980px;
+        margin: 0 auto;
     }
 
     &__artwork {
@@ -299,6 +300,7 @@ html {
         color: $primary-color;
         border-radius: 20px;
         font-weight: 600;
+        min-width: 48px;
 
         @include breakpoint('phone') {
             margin-bottom: 6px;
@@ -332,7 +334,7 @@ html {
         padding: 0 map-get($gutter, 'xl');
 
         @include breakpoint('phone') {
-            margin: $section-gutter auto;
+            margin: $section-gutter auto 20px;
         }
     }
 
@@ -349,12 +351,15 @@ html {
     flex-direction: row-reverse;
     justify-content: space-between;
     gap: 10px;
-    padding-top: 10px;
+    padding: 10px 0;
     border-bottom: 1px solid $label-divider;
     cursor: pointer;
 
     @include breakpoint('phone') {
         flex-direction: row;
+        width: 100%;
+        max-width: 980px;
+        margin: 0 auto;
     }
 
     &:after {
@@ -397,6 +402,9 @@ html {
         display: flex;
         flex-direction: column;
         min-height: $artwork-size;
+        @include breakpoint('phone') {
+            min-height: 0;
+        }
     }
 
     &__time {
@@ -438,11 +446,11 @@ html {
     &__actions {
         display: grid;
         grid-template-columns: auto 1fr;
-        margin: 8px 0;
+        margin: 6px 0;
         width: calc(100% + $artwork-size + 10px);
 
         @include breakpoint('phone') {
-            display: flex;
+            width: 100%;
         }
     }
 
