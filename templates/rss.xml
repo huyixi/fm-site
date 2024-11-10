@@ -15,14 +15,14 @@
         <title>{{ page.title | default(value="") | escape }}</title>
         <link>{{ page.permalink | default(value="") }}</link>
         <guid isPermaLink="true">{{ page.permalink | default(value="") }}</guid>
+        {% if page.author %}
+        <author>{{ page.author }}</author>
+        {% endif %}
         {% if page.date %}
         <pubDate>{{ page.date | date(format="r") }}</pubDate>
         {% endif %}
-        {% if page.summary %}
-        <description>{{ page.summary | default(value="") | safe }}</description>
-        {% endif %}
-        {% if page.author %}
-        <author>{{ page.author }}</author>
+        {% if page.content %}
+        <description>{{ page.content | safe }}</description>
         {% endif %}
       </item>
     {% endfor %}
